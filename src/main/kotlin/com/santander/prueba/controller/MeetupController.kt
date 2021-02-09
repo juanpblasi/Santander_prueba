@@ -15,6 +15,7 @@ class MeetupController(private val repository: MeetupRepository) {
     @ResponseStatus(HttpStatus.CREATED)
     fun createMeetup(@RequestBody meetup: MeetupRequestDto): String {
         val newMeetup = MeetupModel(meetup.attendees,meetup.description)
+        newMeetup.id = 1
         repository.save(newMeetup)
         return "Meetup Guardada"
     }
