@@ -3,7 +3,8 @@
 En Santander Tecnología queremos armar las mejores meetups y para eso planeamos hacer una App que nos ayude a lograr que no falte lo fundamental... ¡Birras!
 
 
-¿Cuál es el problema?
+¿Cuál es el problema?   
+
 
 Tenemos un proveedor que nos vende cajas de 6 unidades de birras. El problema es que: si hace entre 20 y 24 grados, se toma una birra por persona; si hace menos de 20 grados, se toma 0.75; y si hace mucho calor (más de 24 grados), se toman 2 birras más por persona. Y siempre preferimos que sobre y no que falte.
 
