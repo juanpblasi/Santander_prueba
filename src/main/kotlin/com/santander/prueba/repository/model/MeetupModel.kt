@@ -1,7 +1,11 @@
 package com.santander.prueba.repository.model
 
-import com.santander.prueba.domain.Meetup
-import javax.persistence.*
+import java.util.*
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.Table
 
 @Entity
 @Table(name = "meet_ups", schema = "public")

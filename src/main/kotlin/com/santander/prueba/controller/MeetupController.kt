@@ -22,8 +22,8 @@ class MeetupController(private val repository: MeetupRepository) {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    fun listMeetups(): List<Meetup> {
-        return repository.findAll().map { it.toDomain() }
+    fun listMeetups(): List<MeetUpDto> {
+        return service.listMeetUps().map { mapper.toDto(it) }
     }
 
 
