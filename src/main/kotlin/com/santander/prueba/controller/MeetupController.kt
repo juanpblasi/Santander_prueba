@@ -1,5 +1,6 @@
 package com.santander.prueba.controller
 
+import com.santander.prueba.dto.RegistrationRequestDto
 import com.santander.prueba.dto.MeetUpDto
 import com.santander.prueba.dto.MeetupRequestDto
 import com.santander.prueba.mapper.MeetUpMapper
