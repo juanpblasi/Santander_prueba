@@ -10,8 +10,8 @@ import javax.persistence.Table
 @Entity
 @Table(name = "meet_ups", schema = "public")
 data class MeetupModel(
-    val description: String,
-    val date: Date
+    var description: String,
+    var date: Date
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

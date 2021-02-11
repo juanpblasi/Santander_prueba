@@ -3,6 +3,7 @@ package com.santander.prueba.controller
 import com.santander.prueba.dto.RegistrationRequestDto
 import com.santander.prueba.dto.MeetUpDto
 import com.santander.prueba.dto.MeetupRequestDto
+import com.santander.prueba.dto.RegistrationDto
 import com.santander.prueba.mapper.MeetUpMapper
 import com.santander.prueba.service.MeetUpService
 import org.springframework.http.HttpStatus
@@ -28,5 +29,11 @@ class MeetupController(private val service: MeetUpService, private val mapper: M
     @ResponseStatus(HttpStatus.OK)
     fun getMeetup(@PathVariable id: Long): MeetUpDto {
         return mapper.toDto(service.getMeetUp(id))
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createRegistration(@RequestBody registrationRequestDto: RegistrationRequestDto): RegistrationDto {
+
     }
 }

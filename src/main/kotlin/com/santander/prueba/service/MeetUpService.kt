@@ -19,4 +19,11 @@ class MeetUpService(private val meetUpRepository: MeetupRepository, private val 
     fun getMeetUp(id: Long): MeetUp {
         return mapper.toDomain(meetUpRepository.getOne(id))
     }
+
+    fun modifyMeetUp(id: Long, meetUp: MeetUp): MeetUp {
+        var meetUpModel = meetUpRepository.findById(id).orElseThrow { throw Exception("hola") }
+        meetUpModel.description = meetUp.description
+        meetUpModel.date = meetUp.date
+        return mapper.toDomain(meetUpRepository.save(meetUpModel))
+    }
 }
