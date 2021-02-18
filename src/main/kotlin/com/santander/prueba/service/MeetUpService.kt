@@ -28,10 +28,14 @@ class MeetUpService(
         return mapper.toDomain(meetUpRepository.getOne(id))
     }
 
-    fun modifyMeetUp(id: Long, meetUp: MeetUp): MeetUp {
-        var meetUpModel = meetUpRepository.findById(id).orElseThrow { throw Exception("hola") }
-        meetUpModel.description = meetUp.description
-        meetUpModel.date = meetUp.date
-        return mapper.toDomain(meetUpRepository.save(meetUpModel))
+    fun createRegistration(id: Long, registration: Registration): Registration {
+
+        return registrationMapper.toDomain(registrationRepository.save(registrationMapper.toModel(registration)))
     }
 }
+
+/*
+    Hacer funcion en service que cree una registration
+    Hacer llamado del controller al service
+    y usar los mappers
+ */

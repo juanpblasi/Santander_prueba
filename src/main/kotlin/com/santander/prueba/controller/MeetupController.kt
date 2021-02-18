@@ -14,26 +14,30 @@ import org.springframework.web.bind.annotation.*
 class MeetupController(private val service: MeetUpService, private val mapper: MeetUpMapper) {
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED) // 201
     fun createMeetup(@RequestBody meetupRequest: MeetupRequestDto): MeetUpDto {
         return mapper.toDto(service.createMeetUp(mapper.toDomain(meetupRequest)))
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.OK) // 200
     fun listMeetups(): List<MeetUpDto> {
         return service.listMeetUps().map { mapper.toDto(it) }
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.OK) // 200
     fun getMeetup(@PathVariable id: Long): MeetUpDto {
         return mapper.toDto(service.getMeetUp(id))
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    fun createRegistration(@RequestBody registrationRequestDto: RegistrationRequestDto): RegistrationDto {
+    @PostMapping("/{id}/registrations")
+    @ResponseStatus(HttpStatus.CREATED) // 201
+    fun createRegistration(
+        @PathVariable id: Long,
+        @RequestBody registrationRequestDto: RegistrationRequestDto
+    ): RegistrationDto {
+        TODO()
 
     }
 }
