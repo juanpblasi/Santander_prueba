@@ -37,7 +37,11 @@ class MeetupController(private val service: MeetUpService, private val mapper: M
         @PathVariable id: Long,
         @RequestBody registrationRequestDto: RegistrationRequestDto
     ): RegistrationDto {
-        TODO()
-
+        return registrationMapper.toDto(
+            service.createRegistration(
+                id,
+                registrationMapper.toDomain(registrationRequestDto)
+            )
+        )
     }
 }

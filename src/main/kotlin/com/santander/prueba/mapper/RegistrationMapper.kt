@@ -4,6 +4,7 @@ package com.santander.prueba.mapper
 import com.santander.prueba.domain.Registration
 import com.santander.prueba.dto.RegistrationDto
 import com.santander.prueba.dto.RegistrationRequestDto
+import com.santander.prueba.repository.model.MeetupModel
 import com.santander.prueba.repository.model.RegistrationModel
 import org.springframework.stereotype.Component
 
@@ -18,8 +19,8 @@ class RegistrationMapper {
         return Registration(registrationModel.id, registrationModel.personName)
     }
 
-    fun toModel(registration: Registration): RegistrationModel {
-        return RegistrationModel(registration.personName)
+    fun toModel(registration: Registration, meetUp: MeetupModel): RegistrationModel {
+        return RegistrationModel(registration.personName, meetUp)
     }
 
     fun toDto(registration: Registration): RegistrationDto {

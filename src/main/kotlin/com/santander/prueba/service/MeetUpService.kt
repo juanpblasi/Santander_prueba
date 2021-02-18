@@ -2,10 +2,12 @@ package com.santander.prueba.service
 
 import com.santander.prueba.domain.MeetUp
 import com.santander.prueba.domain.Registration
+import com.santander.prueba.exception.RequestException
 import com.santander.prueba.mapper.MeetUpMapper
 import com.santander.prueba.mapper.RegistrationMapper
 import com.santander.prueba.repository.MeetupRepository
 import com.santander.prueba.repository.RegistrationRepository
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 
 @Service
@@ -29,13 +31,15 @@ class MeetUpService(
     }
 
     fun createRegistration(id: Long, registration: Registration): Registration {
-
-        return registrationMapper.toDomain(registrationRepository.save(registrationMapper.toModel(registration)))
+        val meetUp = meetUpRepository.findById(id)
+            .orElseThrow { RequestException("Meet up not found", "not.found", HttpStatus.NOT_FOUND.value()) }
+        return registrationMapper.toDomain(
+            registrationRepository.save(
+                registrationMapper.toModel(
+                    registration,
+                    meetUp
+                )
+            )
+        )
     }
 }
-
-/*
-    Hacer funcion en service que cree una registration
-    Hacer llamado del controller al service
-    y usar los mappers
- */

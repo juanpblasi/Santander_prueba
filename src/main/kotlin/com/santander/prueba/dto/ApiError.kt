@@ -1,4 +1,3 @@
 package com.santander.prueba.dto
 
-class ApiError {
-}
+data class ApiError(val code: String, val message: String)
