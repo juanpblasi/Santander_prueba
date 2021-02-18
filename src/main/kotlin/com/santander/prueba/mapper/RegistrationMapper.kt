@@ -6,6 +6,7 @@ import com.santander.prueba.dto.RegistrationDto
 
 import com.santander.prueba.dto.RegistrationRequestDto
 import com.santander.prueba.repository.model.RegistrationModel
+import org.springframework.stereotype.Component
 
 class RegistrationMapper {
 
