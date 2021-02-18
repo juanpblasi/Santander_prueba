@@ -5,13 +5,18 @@ import com.santander.prueba.dto.MeetUpDto
 import com.santander.prueba.dto.MeetupRequestDto
 import com.santander.prueba.dto.RegistrationDto
 import com.santander.prueba.mapper.MeetUpMapper
+import com.santander.prueba.mapper.RegistrationMapper
 import com.santander.prueba.service.MeetUpService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("meet-ups")
-class MeetupController(private val service: MeetUpService, private val mapper: MeetUpMapper) {
+class MeetupController(
+    private val service: MeetUpService,
+    private val mapper: MeetUpMapper,
+    private val registrationMapper: RegistrationMapper
+) {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED) // 201
