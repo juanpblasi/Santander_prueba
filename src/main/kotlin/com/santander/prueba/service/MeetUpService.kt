@@ -42,4 +42,11 @@ class MeetUpService(
             )
         )
     }
+    fun getRegistration(id: Long): Registration {
+        return mapper.toDomain(RegistrationRepository.getOne(id))
+    }
+
+    fun listRegistrations(): List<Registration> {
+        return RegistrationRepository.findAll().map { mapper.toDto(it) }
+    }
 }

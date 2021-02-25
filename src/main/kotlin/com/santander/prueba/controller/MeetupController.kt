@@ -49,4 +49,23 @@ class MeetupController(
             )
         )
     }
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    fun getRegistration(@PathVariable id: Long): RegistrationDto {
+        return mapper.toDto(service.getRegistration(id))
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK) // 200
+    fun listRegistrations(): List<RegistrationDto> {
+        return service.listRegistrations().map { mapper.toDto(it) }
+    }
+
 }
+
+
+/*
+
+Hacer get individual y de lista del Registration
+
+ */
